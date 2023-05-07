@@ -3,37 +3,30 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
+import {
+  signIn,
+  signOut,
+  useSession,
+  getProviders,
+  ClientSafeProvider,
+  LiteralUnion,
+} from 'next-auth/react'
+import { BuiltInProviderType } from 'next-auth/providers'
 
-export interface INavProps {}
+export default function Nav() {
+  const { data: session } = useSession()
 
-interface Providers {
-  name: string
-  id: string
-}
-
-interface Session {
-  user?: {
-    image: string
-  }
-}
-
-export default function Nav(props: INavProps) {
-  const session: Session = {
-    user: {
-      image: '/assets/icons/tick.svg',
-    },
-  }
-
-  const [providers, setProviders] = useState<Providers | null>(null)
   const [toggleDropdown, setToggleDropdown] = useState(false)
+  const [providers, setProviders] = useState<Record<
+    LiteralUnion<BuiltInProviderType, string>,
+    ClientSafeProvider
+  > | null>(null)
 
   useEffect(() => {
-    const getSetProvider = async () => {
+    ;(async () => {
       const res = await getProviders()
-      // setProviders(res)
-    }
-    getSetProvider()
+      setProviders(res)
+    })()
   }, [])
 
   return (
