@@ -29,10 +29,11 @@ export default function Nav(props: INavProps) {
   const [toggleDropdown, setToggleDropdown] = useState(false)
 
   useEffect(() => {
-    ;(async () => {
+    const getSetProvider = async () => {
       const res = await getProviders()
       // setProviders(res)
-    })()
+    }
+    getSetProvider()
   }, [])
 
   return (
@@ -92,7 +93,7 @@ export default function Nav(props: INavProps) {
       {/* Mobile Navigation */}
       <div className='sm:hidden flex relative'>
         {session?.user ? (
-          <div className='flex'>
+          <div className='flex cursor-pointer'>
             <Image
               src={session?.user.image}
               width={37}
