@@ -7,3 +7,10 @@ export interface IUser {
   image: string
   username: string
 }
+
+export interface Creator {
+  email: string
+  image: string
+  username: string
+  _id: string
+}
