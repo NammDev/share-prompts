@@ -4,14 +4,14 @@ import { FormEvent, useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 
 import Form from '@/components/Prompt/Form'
-import { Post } from '@/types/post'
+import { Prompt } from '@/types/prompt'
 
 const UpdatePrompt = () => {
   const router = useRouter()
   const searchParams = useSearchParams()
   const promptId = searchParams.get('id')
 
-  const [post, setPost] = useState<Post>({ prompt: '', tag: '' })
+  const [post, setPost] = useState<Prompt>({ prompt: '', tag: '' })
   const [submitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {

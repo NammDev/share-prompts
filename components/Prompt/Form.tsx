@@ -1,11 +1,11 @@
-import { Post } from '@/types/post'
+import { Prompt } from '@/types/prompt'
 import Link from 'next/link'
 import { Dispatch, FormEvent, SetStateAction } from 'react'
 
 export interface IForm {
   type: 'Create' | 'Edit'
-  post: Post
-  setPost: Dispatch<SetStateAction<Post>>
+  post: Prompt
+  setPost: Dispatch<SetStateAction<Prompt>>
   submitting: boolean
   handleSubmit: (e: FormEvent<HTMLFormElement>) => Promise<void>
 }

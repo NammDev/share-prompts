@@ -1,14 +1,7 @@
 import { signIn } from 'next-auth/react'
 import NextAuth, { Account, DefaultSession, User } from 'next-auth'
 import { JWT } from 'next-auth/jwt'
-
-export interface IUser {
-  id: string
-  email: string
-  name: string
-  picture: string
-  image: string
-}
+import { IUser } from './user'
 
 declare module 'next-auth' {
   /**
