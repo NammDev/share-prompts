@@ -18,8 +18,6 @@ const Feed = () => {
     setAllPosts(data)
   }
 
-  console.log(allPosts)
-
   useEffect(() => {
     fetchPosts()
   }, [])
