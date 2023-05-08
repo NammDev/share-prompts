@@ -2,7 +2,8 @@
 import { FormEvent, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
-import Form, { Post } from '@/components/Prompt/Form'
+import Form from '@/components/Prompt/Form'
+import { Post } from '@/types/post'
 
 const CreatePrompt = () => {
   const router = useRouter()

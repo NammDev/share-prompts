@@ -1,10 +1,6 @@
+import { Post } from '@/types/post'
 import Link from 'next/link'
 import { Dispatch, FormEvent, SetStateAction } from 'react'
-
-export type Post = {
-  prompt: string
-  tag: string
-}
 
 export interface IForm {
   type: 'Create' | 'Edit'
